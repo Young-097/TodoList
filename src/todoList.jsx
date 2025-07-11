@@ -18,8 +18,9 @@ function TodoList ({todoList, setTodoList}) {
                         onChange={()=>toggleCheckbox(index)}
                         checked={todo.isComplete}/>
                         {todo.todo}
-                        <button>♻</button>
-                        <button>❌</button>
+                        <button >♻</button>
+                        <button onClick={()=>{setTodoList(prev => prev.filter((el)=>el.id !== todo.id))
+                        }}>❌</button>
                     </label>
                 </div>
             )
