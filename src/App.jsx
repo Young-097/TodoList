@@ -1,11 +1,17 @@
-import { Link } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
 import './App.css'
+import TodoInput from './TodoInput'
+import TodoList from './todoList'
+import Todo from './Todo'
+
 
 function App() {
 
   return (
     <>
-      <Link to="/TodoList">Home</Link>
+      <div>
+        <Todo/>
+      </div>
     </>
   )
 }

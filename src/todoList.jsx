@@ -6,16 +6,29 @@ function TodoList () {
         {id: 1, todo: '공부하기', isComplete: true},
         {id: 2, todo: '청소하기', isComplete: false},
     ])
-    const toggleCheckbox = ()=>{}
+    const toggleCheckbox = (index)=>{
+        const newArr = [...todoList];
+        newArr[index].isComplete = !newArr[index].isComplete;
+        setTodoList(newArr)
+    
+    }
     return(
         <>
-            {todoList.map((todo)=>{
-                <input 
-                key={todo.id} 
-                type="checbox" 
-                onChange={toggleCheckbox}
-                checked={todo.isComplete}/>
+            
+            {todoList.map((todo, index)=>{return(
+                <div key={todo.id}>
+                    <label>
+                        <input
+                        type="checkbox" 
+                        onChange={()=>toggleCheckbox(index)}
+                        checked={todo.isComplete}/>
+                        {todo.todo}
+                    </label>
+                </div>
+            )
             })}
         </>
     )
 }
+
+export default TodoList;

@@ -1,0 +1,15 @@
+
+.Todo {
+    display: grid;
+    gap: 2rem;
+}
+
+.Todoinput {
+    display: flex;
+    gap: 1rem;
+
+}
+
+.Todoinput_button {
+    background-color: pink;
+}
