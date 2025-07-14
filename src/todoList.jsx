@@ -2,7 +2,7 @@ import { useState } from "react"
 
 function TodoList ({todoList, setTodoList}) {
     const [editingId, setEditingId] = useState(null);
-    const [editInput, seteditInput] = useState('')
+    const [editInput, setEditInput] = useState('')
 
     const toggleCheckbox = (index)=>{
         const newArr = [...todoList];
@@ -11,6 +11,13 @@ function TodoList ({todoList, setTodoList}) {
     };
     
     const handleDeleteButtonClick = (id) => {setTodoList(prev => prev.filter((el)=>el.id !== id))}
+    const handleEditButtonClick = (id, todo) => {
+        setEditingId(id);
+        setEditInput(todo)}
+
+    const handleEditComplete = ()=>{setTodoList(prev => 
+        prev.map((el) => 
+            el.id === editingId ? {...el, todo:editInput} : el))}
     return(
         <>
             {todoList.map((todo, index)=>{return(
@@ -22,10 +29,22 @@ function TodoList ({todoList, setTodoList}) {
                         onChange={()=>toggleCheckbox(index)}
                         checked={todo.isComplete}/>
 
-                        {todo.todo}
 
-                        <button >♻</button>
+                        {editingId === todo.id ? (
+                            <>
+                                <input type="text" 
+                                value={editInput} 
+                                onChange={(e)=>{setEditInput(e.target.value)}}/>
+                                <button onClick={handleEditComplete}>♻</button>
+                            </>
 
+                        ) :(
+                            <>
+                                <span>{todo.todo}</span>
+                                <button onClick={()=>{handleEditButtonClick(todo.id, todo.todo)}}>♻</button>
+                            </>
+                        )
+                    }
                         <button onClick={()=>{handleDeleteButtonClick(todo.id)
                         }}>❌</button>
                     </label>
