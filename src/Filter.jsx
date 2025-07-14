@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 const filter = [
     {id: 0, label: "전체보기"},

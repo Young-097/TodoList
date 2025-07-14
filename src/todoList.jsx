@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import "./todoList.css"
 function TodoList ({todoList, setTodoList}) {
     const [editingId, setEditingId] = useState(null);
     const [editInput, setEditInput] = useState('')
@@ -21,8 +21,8 @@ function TodoList ({todoList, setTodoList}) {
     return(
         <>
             {todoList.map((todo, index)=>{return(
-                <div key={todo.id}>
-                    <label>
+                <div className="labelTop" key={todo.id}>
+                    <label className="label">
 
                         <input
                         type="checkbox" 
@@ -35,17 +35,17 @@ function TodoList ({todoList, setTodoList}) {
                                 <input type="text" 
                                 value={editInput} 
                                 onChange={(e)=>{setEditInput(e.target.value)}}/>
-                                <button onClick={handleEditComplete}>♻</button>
+                                <button className="Editcomplete" onClick={handleEditComplete}>♻</button>
                             </>
 
                         ) :(
                             <>
                                 <span>{todo.todo}</span>
-                                <button onClick={()=>{handleEditButtonClick(todo.id, todo.todo)}}>♻</button>
+                                <button className="Editcomplete_2" onClick={()=>{handleEditButtonClick(todo.id, todo.todo)}}>♻</button>
                             </>
                         )
                     }
-                        <button onClick={()=>{handleDeleteButtonClick(todo.id)
+                        <button className="DeletButton" onClick={()=>{handleDeleteButtonClick(todo.id)
                         }}>❌</button>
                     </label>
                 </div>
