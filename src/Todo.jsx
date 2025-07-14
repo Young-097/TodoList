@@ -2,6 +2,7 @@ import TodoInput from "./TodoInput";
 import './Todo.css';
 import { useState } from "react";
 import TodoList from "./todoList";
+import Filter from "./Filter";
 
 
 function Todo () {
@@ -11,6 +12,16 @@ function Todo () {
             {id: 2, todo: '청소하기', isComplete: false},
         ])
     const [inputValue, setInputValue] = useState("")
+    const [filterId, setFilterId] = useState(0)
+
+    const getFilteredList = ()=>{
+        if(filterId === 1){
+            return todoList.filter((el)=> !el.isComplete)
+        }else if(filterId === 2){
+            return todoList.filter((el)=> el.isComplete)
+        }
+        return todoList;
+    }
     return(
         <>
             <div className="Todo">
@@ -22,8 +33,13 @@ function Todo () {
                     setInputValue={setInputValue}/>
                 </div>
                 <div>
+                    <Filter
+                    filterId={filterId}
+                    setFilterId={setFilterId}/>
+                </div>
+                <div>
                     <TodoList
-                    todoList={todoList}
+                    todoList={getFilteredList()}
                     setTodoList={setTodoList}/>
                 </div>
             </div>
