@@ -26,13 +26,6 @@ function Todo () {
         <>
             <div className="Todo">
                 <div>
-                    <TodoInput 
-                    todoList={todoList}
-                    setTodoList={setTodoList}
-                    inputValue={inputValue}
-                    setInputValue={setInputValue}/>
-                </div>
-                <div>
                     <Filter
                     filterId={filterId}
                     setFilterId={setFilterId}/>
@@ -41,6 +34,13 @@ function Todo () {
                     <TodoList
                     todoList={getFilteredList()}
                     setTodoList={setTodoList}/>
+                </div>
+                <div>
+                    <TodoInput 
+                    todoList={todoList}
+                    setTodoList={setTodoList}
+                    inputValue={inputValue}
+                    setInputValue={setInputValue}/>
                 </div>
             </div>
         </>
