@@ -1,0 +1,26 @@
+.Editcomplete_2, .DeletButton{
+    padding: 5px;
+    font-size: 12px;
+    background-color: pink;
+    border-radius: 15px;
+}
+
+.Editcomplete {
+    padding: 5px;
+    font-size: 12px;
+    background-color: pink;
+    border-radius: 15px;
+}
+
+.label{
+    display: flex;
+    gap: 10px;
+}
+
+.labelTop{
+    display: grid;
+    gap: 5px;
+    background-color: skyblue;
+    border-radius: 10px;
+    align-items: center;
+}
